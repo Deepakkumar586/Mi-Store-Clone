@@ -10,6 +10,10 @@ import Heading from "./component/Heading.js"
 import StarProducts from './component/StarProducts.js'
 import HotAccessoryMenu from './component/HotAccessoryMenu.js'
 import HotAccessories from './component/HotAccessories.js'
+import ProductReviews from './component/ProductReviews .js'
+import Videos from './component/Videos.js'
+import Banner from './component/Banner.js'
+import Footer from './component/Footer.js'
 
 // const { banner } = (data).datajson;
 
@@ -36,7 +40,12 @@ function App() {
 
       </Routes>
       <Heading text="PRODUCT REVIEWS" />
-
+      <ProductReviews productReviews={data.productReviews} />
+      <Heading text="VIDEOS" />
+      <Videos videos={data.videos} />
+      <Heading text="IN THE PRESS" />
+      <Banner banner={data.banner} />
+      <Footer />
 
 
     </div>
