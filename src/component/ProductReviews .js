@@ -7,7 +7,7 @@ function ProductReviews({ productReviews }) {
         <div className='product-reviews'>
             {
                 productReviews.map((item, index) => (
-                    <ProductReviewCard name={item.name} review={item.review} price={item.price} image={item.image} key={item.image} index={item.index} />
+                    <ProductReviewCard name={item.name} review={item.review} price={item.price} image={item.image} index={item.index} />
                 ))
             }
 

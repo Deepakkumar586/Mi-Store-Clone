@@ -2,6 +2,7 @@
 import './App.css';
 import PreNavbar from './component/PreNavbar';
 import Navbar from './component/Navbar.js'
+import NavOptions from './component/NavOptions.js'
 import { Route, Routes } from 'react-router-dom';
 import Slider from "./component/Slider.js"
 import data from './data/data.json'
@@ -25,6 +26,13 @@ function App() {
     <div>
       <PreNavbar />
       <Navbar />
+
+
+      <NavOptions miPhones={data.miPhones} redmiPhones={data.redmiPhones} tv={data.tv} laptop={data.laptop} fitnesAndLifestyle={data.fitnessAndLifeStyle} home={data.home} audio={data.audio} accessories={data.accessories} />
+
+
+
+
       <Slider start={data.banner.start} />
       <Offers offers={data.offer} />
       <Heading text="STAR PRODUCTS" />
@@ -45,7 +53,7 @@ function App() {
       <Videos videos={data.videos} />
       <Heading text="IN THE PRESS" />
       <Banner banner={data.banner} />
-      <Footer />
+      <Footer footer={data.footer} />
 
 
     </div>

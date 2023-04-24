@@ -1,7 +1,22 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import '../styles/PreFooter.css'
+import '../styles/Footer.css'
+// import data from '../data/data.json'
+import emailjs from "@emailjs/browser"
 
-function Footer() {
+function Footer({ footer }) {
+    const form = useRef();
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm('service_9c1q3ek', 'template_4svahsa', form.current, 'NS87pt9dTwlhsITwE')
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            });
+    };
 
     const repeatIcon = <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="M280 976 120 816l160-160 42 44-86 86h464V626h60v220H236l86 86-42 44Zm-80-450V306h524l-86-86 42-44 160 160-160 160-42-44 86-86H260v160h-60Z" /></svg>
 
@@ -41,10 +56,10 @@ function Footer() {
                 <div><p>LET's STAY IN TOUCH</p><span>Get updates on sales specials and more</span></div>
 
                 <div>
-                    <div>
-                        <input text="email" placeholder='Enter Your Email' name='email' />
-                        <button></button>
-                    </div>
+                    <form ref={form} onSubmit={sendEmail}>
+                        <input type="email" name="user_email" placeholder='Enter Your Email' />
+                        <button style={{ marginLeft: '13px' }}>Send</button>
+                    </form>
                     <span>Thanks. for email list special offers</span>
                 </div>
 
@@ -61,6 +76,70 @@ function Footer() {
 
 
 
+
+            </div>
+
+
+            <div className='footer'>
+                <div>
+                    <p>Support</p>
+                    {
+                        footer.support.map((item, index) => (
+                            <a key={item.url} href={item.url}>{item.name}</a>
+                        ))
+                    }
+                </div>
+
+                <div>
+                    <p>SHOP AND LEARN</p>
+                    {
+                        footer.shopAndLearn.map((item, index) => (
+                            <a key={item.url} href={item.url}>{item.name}</a>
+                        ))
+                    }
+
+                </div>
+
+                <div>
+                    <p>RETAIL STORE</p>
+                    {
+                        footer.retailStore.map((item, index) => (
+                            <a key={item.url} href={item.url}>{item.name}</a>
+                        ))
+                    }
+
+                </div>
+
+                <div>
+                    <p>ABOUT</p>
+                    {
+                        footer.aboutUS.map((item, index) => (
+                            <a key={item.url} href={item.url}>{item.name}</a>
+                        ))
+                    }
+
+                </div>
+
+                <div>
+                    <p>Contact</p>
+                    {
+                        footer.contactUs.map((item, index) => (
+                            <a key={item.url} href={item.url}>{item.name}</a>
+                        ))
+                    }
+
+                </div>
+
+                <div>
+                    <div>Chat with our Virtual AI Bot (24/7 live agent Support)</div>
+                    <button>CHAT NOW</button>
+                </div>
+
+            </div>
+
+
+            <div className='footerBorder'>
+                <div>Copyright 0 2010 - 2021 Xiomi.All Rights</div>
             </div>
 
 
